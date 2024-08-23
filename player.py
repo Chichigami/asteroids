@@ -5,6 +5,7 @@ from circleshape import CircleShape
 class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
+        self.radius = PLAYER_RADIUS
         self.position = pygame.Vector2(x, y)
         self.rotation = 0
 
@@ -25,7 +26,7 @@ class Player(CircleShape):
     
     def update(self, dt):
         keys = pygame.key.get_pressed()
-        
+
         if keys[pygame.K_w]:
             self.move(dt)
 
