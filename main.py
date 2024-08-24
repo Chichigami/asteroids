@@ -1,10 +1,11 @@
 import pygame
-from player import Player
-from constants import *
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
-from pewpew import Shot
 import sys
+from src.core.player import Player
+from src.core.constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from src.core.asteroid import Asteroid
+from src.core.asteroidfield import AsteroidField
+from src.core.pewpew import Shot
+
 
 def main():
 	pygame.init()

@@ -1,7 +1,7 @@
 import pygame
 import random
-from constants import ASTEROID_MIN_RADIUS
-from circleshape import CircleShape
+from src.core.constants import ASTEROID_MIN_RADIUS
+from src.core.circleshape import CircleShape
 
 class Asteroid(CircleShape):
     def __init__(self, x, y, radius):
