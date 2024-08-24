@@ -21,10 +21,10 @@ def main():
 	Player.containers = (updateable, drawable)
 	AsteroidField.containers = (updateable)
 	Shot.containers = (bullets, updateable, drawable)
+	field = AsteroidField()
 
 	#init
 	user = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
-	field = AsteroidField()
 
 	#gameplay loop
 	while True:
@@ -35,15 +35,15 @@ def main():
 		for i in updateable:
 			i.update(dt)
 		
-		for a in asteroids:
-			for bullet in bullets:
-				if a.collision(bullet):
-					a.kill()
-					bullet.kill()
-
-			if a.collision(user):
+		for asteroid in asteroids:
+			if asteroid.collision(user):
 				print("Game Over!")
 				sys.exit()
+
+			for bullet in bullets:
+				if asteroid.collision(bullet):
+					asteroid.split()
+					bullet.kill()
 
 
 		screen.fill(color="black")
@@ -53,7 +53,7 @@ def main():
 
 		pygame.display.flip()
 
-		dt = decouple.tick(60)/1000
+		dt = decouple.tick(144)/1000
 
 if __name__ == "__main__":
 	main()
